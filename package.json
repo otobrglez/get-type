@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "mocha": "^9.1.1",
+    "yarn": "^1.22.11"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
+}
