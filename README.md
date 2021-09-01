@@ -7,8 +7,8 @@ The original question was asked by [@joelnet](https://twitter.com/joelnet/status
 > Would you write this #JavaScript function differently? How would you write it?
 
 ```javascript
-const getType = (node) => 
-  yaml.isAlias(node) ? "ALIAS" 
+const getType = (node) =>
+  yaml.isAlias(node) ? "ALIAS"
     : yaml.isMap(node) ? "MAP"
     : yaml.isPair(node) ? "PAIR"
     : yaml.isScalar(node) ? "SCALAR"
@@ -21,13 +21,20 @@ const getType = (node) =>
 ## My solution
 
 ```javascript
-const getType = (yaml, node) => 
-  ['Alias', 'Map', 'Pair', 'Scalar', 
+const getType2 = (yaml, node) =>
+  ['Alias', 'Map', 'Pair', 'Scalar', 'Seq', 'Collection', 'Node']
+    .find(m => yaml['is' + m](node))?.toUpperCase() || 'UNKNOWN'
+```
+
+```javascript
+const getType = (yaml, node) =>
+  ['Alias', 'Map', 'Pair', 'Scalar',
    'Seq', 'Collection', 'Node']
-    .reduce((a, c) => 
+    .reduce((a, c) =>
       a + (a == '' ? (yaml[`is${c}`](node) ? c : '') : ''), '')
     .toUpperCase() || 'UNKNOWN'
 ```
+
 
 ## Development && testing
 
