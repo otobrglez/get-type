@@ -20,6 +20,8 @@ const getType = (node) =>
 
 ## My solution
 
+Most of the code lives in [test/](test/) folder.
+
 ```javascript
 const getType2 = (yaml, node) =>
   ['Alias', 'Map', 'Pair', 'Scalar', 'Seq', 'Collection', 'Node']
