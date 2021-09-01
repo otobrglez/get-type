@@ -51,10 +51,8 @@ const getType2 = (node) =>
     .toUpperCase() || 'UNKNOWN'
 
 const getType21 = (yaml, node) =>
-  ['Alias', 'Map', 'Pair', 'Scalar',
-    'Seq', 'Collection', 'Node']
-    .reduce((a, c) =>
-      a + (a === '' ? (yaml[`is${c}`](node) ? c : '') : ''), '')
+  ['Alias', 'Map', 'Pair', 'Scalar', 'Seq', 'Collection', 'Node']
+    .reduce((a, c) => a + (a === '' ? (yaml[`is${c}`](node) ? c : '') : ''), '')
     .toUpperCase() || 'UNKNOWN'
 
 const getType22 = (yaml, node) =>
