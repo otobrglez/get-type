@@ -30,10 +30,8 @@ const getType2 = (yaml, node) =>
 
 ```javascript
 const getType = (yaml, node) =>
-  ['Alias', 'Map', 'Pair', 'Scalar',
-   'Seq', 'Collection', 'Node']
-    .reduce((a, c) =>
-      a + (a == '' ? (yaml[`is${c}`](node) ? c : '') : ''), '')
+  ['Alias', 'Map', 'Pair', 'Scalar', 'Seq', 'Collection', 'Node']
+    .reduce((a, c) => a + (a === '' ? (yaml[`is${c}`](node) ? c : '') : ''), '')
     .toUpperCase() || 'UNKNOWN'
 ```
 
